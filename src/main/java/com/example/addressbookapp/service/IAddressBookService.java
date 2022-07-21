@@ -18,5 +18,7 @@ public interface IAddressBookService {
     String deleteAddressBookData(int empID);
 
     AddressBook findByCity(String city);
-    AddressBook findByState(String city);
+    AddressBook findByState(String state);
+    List<AddressBook> findAllOrderByNameAsc();
+    List<AddressBook> findAllOrderByStateNameAsc();
 }

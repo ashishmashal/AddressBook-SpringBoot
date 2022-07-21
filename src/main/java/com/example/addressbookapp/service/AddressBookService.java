@@ -47,7 +47,21 @@ public class AddressBookService implements IAddressBookService{
     }
 
     @Override
-    public AddressBook findByState(String city){
-        return addressBookRepository.findByState(city);
+    public AddressBook findByState(String state){
+        return addressBookRepository.findByState(state);
     }
+
+
+
+    @Override
+    public List<AddressBook> findAllOrderByNameAsc() {
+        return addressBookRepository.findAllOrderByNameAsc();
+    }
+
+    @Override
+    public List<AddressBook> findAllOrderByStateNameAsc() {
+        return addressBookRepository.findAllOrderByStateNameAsc();
+    }
+
+
 }

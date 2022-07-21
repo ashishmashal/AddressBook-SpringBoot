@@ -64,12 +64,21 @@ public class AddressBookController {
         ResponseDTO respOTO= new ResponseDTO("Get Call For ID Successful", empDatalist);
         return new ResponseEntity<ResponseDTO>(respOTO, HttpStatus.OK);
     }
-
     @GetMapping("/state/{state}")
     public ResponseEntity<ResponseDTO> getStateAddressBookData(@PathVariable("state") String state) {
         AddressBook empDatalist = iAddressBookService.findByState(state);
         ResponseDTO respOTO= new ResponseDTO("Get Call For ID Successful", empDatalist);
         return new ResponseEntity<ResponseDTO>(respOTO, HttpStatus.OK);
     }
+    @GetMapping(value = "/sortCity")
+    public List<AddressBook> getCitiesByName() {
+        return iAddressBookService.findAllOrderByNameAsc();
+    }
+
+    @GetMapping(value = "/sortState")
+    public List<AddressBook> getStateByName() {
+        return iAddressBookService.findAllOrderByStateNameAsc();
+    }
+
 
 }
